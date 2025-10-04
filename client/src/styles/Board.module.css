@@ -1,0 +1,181 @@
+/* Background + centering */
+.board_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #dfe7ef, #b7c9d8);
+  padding: 1rem;
+}
+
+/* Outer board */
+.board {
+  width: var(--board-size);
+  height: var(--board-size);
+  display: grid;
+  grid-template-columns: repeat(14, var(--tile-size));
+  grid-template-rows: repeat(14, var(--tile-size));
+  gap: var(--gap);
+  background: #f8fafc;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  position: relative;
+}
+
+/* Tiles */
+.tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #cbd5e1;
+  background: white;
+  font-size: 0.65rem;
+  font-weight: 500;
+  padding: 0.25rem;
+  user-select: none;
+  position: relative; /* for pawn overlay */
+  cursor: pointer;
+}
+
+/* Center area */
+.board_center {
+  grid-column: 3 / span 9;
+  grid-row: 3 / span 9;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(0,0,0,0.02) 0 6px,
+    transparent 6px 12px
+  );
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: #475569;
+}
+
+.gridContainer {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.imageContainer {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  display: block;
+}
+
+.hotspot {
+  position: absolute;
+  border-radius: 50%;
+  border: 3px dashed rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.08);
+  z-index: 4;
+  pointer-events: none; /* we position hotspot with clicks on container */
+}
+
+.pawnAbsolute {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+  z-index: 6;
+  cursor: pointer;
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.controls label {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  color: #1f2937;
+}
+
+.controls input {
+  width: 80px;
+  padding: 6px 8px;
+  margin-top: 4px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+}
+
+.controls button {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  background: #111827;
+  color: white;
+  cursor: pointer;
+}
+
+.diceFace {
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  background: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.diceFace img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.tileCircle {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.pawnOnTile {
+  width: 46%;
+  height: 46%;
+  border-radius: 50%;
+}
+
+.pawn {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 0px solid transparent; /* images already include visible outline */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
+}
+
+/* reduce tile visual weight so image is visible under it */
+.tile::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.pawn.highlight {
+  box-shadow: 0 0 10px 4px yellow;
+  transform: scale(1.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+

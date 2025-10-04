@@ -1,0 +1,80 @@
+.app {
+  text-align: center;
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.controls {
+  margin-top: 20px;
+}
+
+.controls button {
+  padding: 10px 20px;
+  font-size: 1.2em;
+  cursor: pointer;
+  background-color: #61dafb;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.controls h2, .controls h3 {
+  margin: 10px 0;
+}
+
+.p {
+  font-size: 100px;
+}
+
+
+#---- ADDED -------------
+/* Container for the Two Columns */
+.two-column-layout {
+  display: flex; /* Enables Flexbox for the container */
+  width: 100%;
+  height: 100vh; /* Takes up the full height of the viewport */
+  gap: 20px; /* Adds space between the columns */
+  padding: 20px;
+  box-sizing: border-box; /* Ensures padding doesn't affect the overall width/height */
+  background-color: #f0f2f5; /* Light background for contrast */
+}
+
+/* --- Information Column --- */
+.info-column {
+  /* You can set a fixed width or a flexible width. 
+     Here, it's fixed, which is common for sidebars. */
+  width: 300px; 
+  min-width: 250px; /* Prevents it from getting too small */
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; /* Allows scrolling if content is too long */
+}
+
+/* --- Board Column --- */
+.board-column {
+  /* flex-grow: 1 makes this column take up all the *remaining* space. */
+  flex-grow: 1; 
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column; /* To manage content inside the board column */
+  overflow: hidden; /* Important for containing the board content */
+}
+
+.board-content {
+  flex-grow: 1;
+  /* Add styling for your board here */
+  border: 1px dashed #cccccc;
+  padding: 10px;
+  margin-top: 10px;
+}

@@ -1,0 +1,37 @@
+.wrapper {
+  padding: 50px;
+}
+
+.grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-gap: 10px;
+  width: max-content;
+}
+
+.tile {
+  width: 100px;
+  height: 100px;
+  background-color: #ddd;
+  border: 1px solid #aaa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.redBox {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  border-radius: 8px;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
